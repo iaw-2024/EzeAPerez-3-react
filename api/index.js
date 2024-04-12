@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require('cors');
+const path = require("path");
 const app = express();
 app.use(cors());
 
@@ -51,8 +52,9 @@ const jsonResponse = {
   };
 
 app.get("/datos", (req, res) => res.send(jsonResponse));
-app.use(express.static('public'))
+app.use(express.static('public'));
 
+app.use(express.static(path.resolve(__dirname, "..", "client", "build")));
 
 app.listen(3001, () => console.log("Server ready on port 3001."));
 
