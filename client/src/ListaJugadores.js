@@ -4,7 +4,7 @@ export default function ListaJugadores() {
   const [jugadores, setJugadores] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/datos")
+    fetch("/datos")
       .then((response) => response.json())
       .then((data) => {
         const listaJugadores = [];
